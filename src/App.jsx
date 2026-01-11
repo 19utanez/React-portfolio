@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import ShootingStars from "./components/ShootingStars";
 import SpotlightSection from "./components/SpotlightSection";
 import SkillsGrid from "./components/skills/SkillsGrid";
+import Projects from "./components/Projects/Projects";
 import RocketFollower from "./components/RocketFollower";
 
 import { useEffect, useState } from "react";
@@ -83,15 +84,8 @@ function App() {
 
           {/* PROJECTS */}
           <SpotlightSection>
-            <section className="projects">
-              <h2>My Projects</h2>
-
-              <div className="project-grid">
-                <div className="project-card">Project One</div>
-                <div className="project-card">Project Two</div>
-                <div className="project-card">Project Three</div>
-              </div>
-            </section>
+            {/* Replacing old manual project cards with the new Projects component */}
+            <Projects />
           </SpotlightSection>
 
         </main>

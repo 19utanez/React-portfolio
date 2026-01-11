@@ -14,3 +14,39 @@ polishing
 ===================final part=====
 
 deployment
+
+
+
+=========Project-Structure=================
+
+my-portfolio/
+│
+├─ public/
+│   ├─ index.html
+│   └─ favicon.ico
+│
+├─ src/
+│   ├─ assets/                     <-- images, icons, etc.
+│   │   └─ ...                     
+│   │
+│   ├─ components/
+│   │   ├─ Footer.jsx
+│   │   ├─ Navbar.jsx
+│   │   ├─ RocketFollower.jsx
+│   │   ├─ ShootingStars.jsx
+│   │   ├─ SpotlightSection.jsx
+│   │   │
+│   │   ├─ Skills/
+│   │   │   ├─ SkillIcon.jsx
+│   │   │   ├─ SkillsData.js
+│   │   │   └─ SkillsGrid.jsx
+│   │   │
+│   │   └─ Projects/
+│   │       └─ Projects.jsx
+│   │
+│   ├─ hooks/
+│   │   └─ useScrollDirection.js   <-- detects scroll direction
+│   │
+│   ├─ App.jsx
+│   ├─ index.css
+│   └─ main.jsx
