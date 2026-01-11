@@ -1,0 +1,513 @@
+/* =========================
+   ROOT DEFAULT (VITE)
+========================= */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #970505;
+  background-color: #191824;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   HTML / BODY
+========================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  color: #2c10a57e;
+  overflow-x: hidden;
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =========================
+   NAVBAR (HEADER)
+========================= */
+.navbar {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  z-index: 10;
+  position: relative;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  position: relative;
+  padding: 6px 10px;
+  color: #ffffff;
+  transition: transform 0.2s ease, text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #646cff;
+  transition: width 0.3s ease;
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+.nav-links li:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(100,108,255,0.6);
+}
+
+.nav-links li:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   NIGHT SKY BACKGROUND
+========================= */
+.home-sky {
+  position: relative;
+  min-height: calc(100vh - 80px - 60px);
+  overflow: hidden;
+  z-index: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.01) 0%,
+    rgba(2, 2, 44, 0.02) 25%,
+    #1a1313 50%,
+    #000000 75%,
+    #000000 100%
+  );
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* must be behind everything */
+  background:
+    /* Medium stars (1px) */
+    radial-gradient(1px 1px at 3% 7%, #ffffbb, transparent),
+    radial-gradient(1px 1px at 12% 18%, #ffffcc, transparent),
+    radial-gradient(1px 1px at 20% 40%, #ffffbb, transparent),
+    radial-gradient(1px 1px at 28% 12%, #ffffcc, transparent),
+    radial-gradient(1px 1px at 35% 33%, #ffffbb, transparent),
+    radial-gradient(1px 1px at 42% 57%, #ffffcc, transparent),
+    radial-gradient(1px 1px at 50% 20%, #ffffbb, transparent),
+    radial-gradient(1px 1px at 57% 75%, #ffffcc, transparent),
+    radial-gradient(1px 1px at 64% 40%, #ffffbb, transparent),
+    radial-gradient(1px 1px at 71% 15%, #ffffcc, transparent),
+    radial-gradient(1px 1px at 78% 60%, #ffffbb, transparent),
+    radial-gradient(1px 1px at 85% 25%, #ffffcc, transparent),
+    radial-gradient(1px 1px at 92% 50%, #ffffbb, transparent),
+
+    /* Big stars (2px) */
+    radial-gradient(2px 2px at 10% 10%, #ffffff, transparent),
+    radial-gradient(2px 2px at 30% 35%, #ffffff, transparent),
+    radial-gradient(2px 2px at 50% 50%, #ffffff, transparent),
+    radial-gradient(2px 2px at 70% 20%, #ffffff, transparent),
+    radial-gradient(2px 2px at 90% 60%, #ffffff, transparent),
+
+    /* Super big stars (3px, 50 total) */
+    radial-gradient(3px 3px at 2% 15%, #ffffff, transparent),
+    radial-gradient(3px 3px at 6% 40%, #ffffff, transparent),
+    radial-gradient(3px 3px at 9% 65%, #ffffff, transparent),
+    radial-gradient(3px 3px at 13% 30%, #ffffff, transparent),
+    radial-gradient(3px 3px at 17% 55%, #ffffff, transparent),
+    radial-gradient(3px 3px at 21% 75%, #ffffff, transparent),
+    radial-gradient(3px 3px at 25% 20%, #ffffff, transparent),
+    radial-gradient(3px 3px at 29% 50%, #ffffff, transparent),
+    radial-gradient(3px 3px at 33% 10%, #ffffff, transparent),
+    radial-gradient(3px 3px at 37% 35%, #ffffff, transparent),
+    radial-gradient(3px 3px at 41% 65%, #ffffff, transparent),
+    radial-gradient(3px 3px at 45% 25%, #ffffff, transparent),
+    radial-gradient(3px 3px at 49% 45%, #ffffff, transparent),
+    radial-gradient(3px 3px at 53% 70%, #ffffff, transparent),
+    radial-gradient(3px 3px at 57% 15%, #ffffff, transparent),
+    radial-gradient(3px 3px at 61% 55%, #ffffff, transparent),
+    radial-gradient(3px 3px at 65% 80%, #ffffff, transparent),
+    radial-gradient(3px 3px at 69% 30%, #ffffff, transparent),
+    radial-gradient(3px 3px at 73% 60%, #ffffff, transparent),
+    radial-gradient(3px 3px at 77% 5%, #ffffff, transparent),
+    radial-gradient(3px 3px at 81% 35%, #ffffff, transparent),
+    radial-gradient(3px 3px at 85% 70%, #ffffff, transparent),
+    radial-gradient(3px 3px at 89% 20%, #ffffff, transparent),
+    radial-gradient(3px 3px at 93% 50%, #ffffff, transparent),
+    radial-gradient(3px 3px at 97% 10%, #ffffff, transparent),
+    radial-gradient(3px 3px at 5% 60%, #ffffff, transparent),
+    radial-gradient(3px 3px at 15% 80%, #ffffff, transparent),
+    radial-gradient(3px 3px at 27% 5%, #ffffff, transparent),
+    radial-gradient(3px 3px at 38% 50%, #ffffff, transparent),
+    radial-gradient(3px 3px at 48% 25%, #ffffff, transparent),
+    radial-gradient(3px 3px at 58% 70%, #ffffff, transparent),
+    radial-gradient(3px 3px at 68% 35%, #ffffff, transparent),
+    radial-gradient(3px 3px at 78% 15%, #ffffff, transparent),
+    radial-gradient(3px 3px at 88% 50%, #ffffff, transparent),
+    radial-gradient(3px 3px at 98% 25%, #ffffff, transparent),
+    radial-gradient(3px 3px at 12% 40%, #ffffff, transparent),
+    radial-gradient(3px 3px at 22% 60%, #ffffff, transparent),
+    radial-gradient(3px 3px at 32% 15%, #ffffff, transparent),
+    radial-gradient(3px 3px at 42% 55%, #ffffff, transparent),
+    radial-gradient(3px 3px at 52% 35%, #ffffff, transparent),
+    radial-gradient(3px 3px at 62% 75%, #ffffff, transparent),
+    radial-gradient(3px 3px at 72% 30%, #ffffff, transparent),
+    radial-gradient(3px 3px at 82% 65%, #ffffff, transparent),
+    radial-gradient(3px 3px at 92% 15%, #ffffff, transparent),
+    radial-gradient(3px 3px at 25% 50%, #ffffff, transparent),
+    radial-gradient(3px 3px at 35% 20%, #ffffff, transparent),
+    radial-gradient(3px 3px at 45% 80%, #ffffff, transparent),
+    radial-gradient(3px 3px at 55% 10%, #ffffff, transparent),
+    radial-gradient(3px 3px at 65% 40%, #ffffff, transparent),
+    radial-gradient(3px 3px at 75% 75%, #ffffff, transparent),
+    radial-gradient(3px 3px at 85% 30%, #ffffff, transparent);
+}
+
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* =========================
+   SHOOTING STARS
+========================= */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(-45deg, #fff, rgba(255,255,255,0));
+  top: -100px;
+  left: 0;
+  opacity: 0;
+  transform: rotate(45deg);
+  animation: shootingStar 3s linear infinite;
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+
+/* =========================
+   CONTENT WRAPPER
+========================= */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   SPOTLIGHT SECTIONS
+========================= */
+.hero,
+.experience,
+.skills,
+.projects {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  will-change: opacity, transform;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  justify-content: center;
+  gap: 60px;
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.photo-frame {
+  width: 260px;
+  height: 320px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1a1a3b, #0f1a3b, #1a1a5b);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-frame span {
+  width: 100%;
+  height: 100%;
+  background-color: #0f0f0f;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.typing-text::after {
+  content: "|";
+  margin-left: 6px;
+  animation: blink 2s infinite;
+  color: #646cff;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* =========================
+   EXPERIENCE SECTION
+========================= */
+.experience {
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.experience h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.experience p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* =========================
+   SKILLS SECTION
+========================= */
+.skills {
+  padding: 90px 60px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section title */
+.skills h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 34px;
+  letter-spacing: 0.5px;
+}
+
+/* Skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 22px;
+  max-width: 900px; /* slightly wider for 20 icons */
+  margin: 0 auto;
+}
+
+/* Individual skill card */
+.skill-item {
+  padding: 18px 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1a1a3b, #0f1a3b);
+  font-size: 14px;
+  line-height: 1.2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+/* Hover interaction (keeps original feel, just refined) */
+.skill-item:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(135deg, #1f2a5c, #111b3f);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+.projects {
+  padding: 80px 60px;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.project-card {
+  height: 220px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1a1a3b, #0f1a3b, #1a1a5b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.project-card:hover::before {
+  left: 120%;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background-color: #000000;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+  z-index: 10;
+  position: relative;
+}
+
+/* =========================
+   LINKS & BUTTONS
+========================= */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: none;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #242424;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MEDIA QUERIES
+========================= */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 60px 30px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience,
+  .skills {
+    padding: 60px 30px;
+  }
+}
+
+/* Ensure text visibility */
+body, h1, h2, p, .project-card, .footer {
+  color: #ffffff;
+}
