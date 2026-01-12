@@ -6,7 +6,7 @@ import SkillsGrid from "./components/skills/SkillsGrid";
 import Projects from "./components/Projects/Projects";
 import RocketFollower from "./components/RocketFollower";
 import Experience from "./components/Experience/Experience";
-import gradPic from "./assets/grad_pic.jpg";
+import gradPic from "./assets/grad_pic.JPG";
 import { FaMapMarkerAlt, FaEnvelope, FaGraduationCap, FaReact, FaMobileAlt } from "react-icons/fa";
 
 import { useEffect, useState } from "react";
