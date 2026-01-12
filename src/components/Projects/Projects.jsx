@@ -30,7 +30,7 @@ export default function Projects() {
     {
   title: "E-Tech",
   description:
-    "WatchTower is an emergency reporting platform with dedicated mobile and web access. The citizen app lets users report incidents and share their location for quick assistance, while the rescuer app notifies verified responders in real-time to act efficiently. The web-based admin portal allows administrators to manage reports, monitor activities, and coordinate responses. Together, WatchTower streamlines emergency communication, improving safety and response times for communities.",
+    "The E-Tech is an online selling platform for gaming peripherals, developed using Laravel. The project was created by a team of 4, focusing on providing a smooth and secure e-commerce experience for users looking to buy gaming accessories. It features product listings, shopping cart functionality, and a user-friendly interface designed for seamless online transactions.",
   images: [
     f2img1,
     f2img2,
