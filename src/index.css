@@ -50,23 +50,35 @@ body {
    NAVBAR (HEADER)
 ========================= */
 .navbar {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000;
+  color: #fff;
   padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
   z-index: 10;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .logo {
   font-size: 20px;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease;
 }
 
+.logo:hover {
+  text-shadow: 0 0 10px #646cff;
+}
+
+/* =========================
+   NAV LINKS (HORIZONTAL)
+========================= */
 .nav-links {
   list-style: none;
   display: flex;
@@ -77,7 +89,7 @@ body {
   cursor: pointer;
   position: relative;
   padding: 6px 10px;
-  color: #ffffff;
+  color: #fff;
   transition: transform 0.2s ease, text-shadow 0.3s ease, color 0.3s ease;
 }
 
@@ -92,11 +104,13 @@ body {
   transition: width 0.3s ease;
 }
 
-.nav-links li:hover::after {
+.nav-links li:hover::after,
+.nav-links li.active::after {
   width: 100%;
 }
 
-.nav-links li:hover {
+.nav-links li:hover,
+.nav-links li.active {
   transform: translateY(-2px);
   text-shadow: 0 0 8px rgba(100,108,255,0.6);
 }
@@ -104,6 +118,124 @@ body {
 .nav-links li:active {
   transform: scale(0.95);
 }
+
+/* =========================
+   SIDE NAVBAR (VERTICAL)
+========================= */
+.side-navbar,
+.navbar-vertical {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: rgba(30, 30, 40, 0.8);
+  padding: 10px;
+  border-radius: 50px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.side-navbar ul,
+.navbar-vertical ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-navbar li,
+.navbar-vertical li {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #444;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.side-navbar li:hover,
+.navbar-vertical li:hover {
+  background-color: #888;
+  transform: scale(1.1);
+}
+
+.side-navbar li.active {
+  background-color: #1e90ff; /* optional: keep default highlight for side-navbar if needed */
+}
+
+/* Vertical navbar glow for active */
+.navbar-vertical li.active {
+  background-color: #444;
+  box-shadow: 0 0 12px 3px violet;
+}
+
+/* =========================
+   HORIZONTAL NAVBAR (TOP) 
+========================= */
+.navbar-horizontal {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background-color: rgba(30, 30, 40, 0.8);
+  padding: 10px 20px;
+  border-radius: 30px;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.navbar-horizontal ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.navbar-horizontal li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  color: #fff;
+  background-color: #444;
+}
+
+.navbar-horizontal li:hover {
+  background-color: #555;
+}
+
+/* Horizontal navbar glow for active */
+.navbar-horizontal li.active {
+  background-color: #444;
+  box-shadow: 0 0 10px 2px violet;
+}
+
+/* Horizontal navbar logo spacing */
+.navbar-horizontal .logo {
+  margin-right: 20px; /* adjust this value as needed */
+  font-size: 20px;    /* keep existing size if you want */
+  font-weight: bold;  /* keep existing weight */
+  color: #fff;        /* keep text color */
+  cursor: pointer;    /* pointer on hover */
+  transition: text-shadow 0.3s ease;
+}
+
+
 
 /* =========================
    NIGHT SKY BACKGROUND
@@ -275,15 +407,43 @@ body {
 }
 
 .photo-frame {
-  width: 260px;
-  height: 320px;
+  width: 360px;   /* large enough for display */
+  height: 540px;  /* match aspect ratio of high-res image */
   border-radius: 20px;
   background: linear-gradient(135deg, #1a1a3b, #0f1a3b, #1a1a5b);
   padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Glowing dark violet outline */
+  border: 2px solid #4b0082;
+  box-shadow: 0 0 15px #4b0082, 0 0 30px #4b0082, 0 0 45px #6a0dad;
+  transition: box-shadow 0.3s ease-in-out;
+  animation: pulseGlow 3s infinite ease-in-out;
 }
+
+
+/* Pulse animation for glowing effect */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px #4b0082, 0 0 30px #4b0082, 0 0 45px #6a0dad;
+  }
+  50% {
+    box-shadow: 0 0 25px #6a0dad, 0 0 50px #7a0be0, 0 0 70px #8a2be2;
+  }
+}
+
+/* =========================
+   IMAGE INSIDE PHOTO FRAME
+========================= */
+.intro-photo {
+  width: 360px;       /* fill the frame width */
+  height:540px;      /* fill the frame height */
+  object-fit: cover; /* crop if necessary, keeps aspect ratio */
+  border-radius: 6px;
+}
+
 
 .photo-frame span {
   width: 100%;
@@ -296,6 +456,42 @@ body {
   color: #aaa;
   font-size: 14px;
 }
+
+.hero-subtext {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.hero-subtext p {
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between icon and text */
+}
+
+.hero-subtext a {
+  color: #646cff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.hero-subtext a:hover {
+  color: #ffffff;
+}
+
+.icon {
+  color: #646cff;
+  font-size: 18px;
+  flex-shrink: 0; /* keep icon size consistent */
+}
+
+/* Optional: stagger some icons for fun */
+.hero-subtext p:nth-child(2) .icon { color: #00d1ff; }
+.hero-subtext p:nth-child(3) .icon { color: #ffb400; }
+.hero-subtext p:nth-child(4) .icon { color: #ff4d6d; }
+.hero-subtext p:nth-child(5) .icon { color: #b19cd9; }
 
 .hero-text {
   max-width: 500px;
@@ -324,25 +520,205 @@ body {
   color: #ccc;
 }
 
+
 /* =========================
    EXPERIENCE SECTION
 ========================= */
 .experience {
   padding: 80px 60px;
-  text-align: center;
+  position: relative;
 }
 
 .experience h2 {
+  text-align: center;
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
-.experience p {
-  max-width: 700px;
+/* Timeline container */
+.experience-timeline {
+  position: relative;
+  max-width: 900px;
   margin: 0 auto;
-  font-size: 18px;
-  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
+
+/* Vertical line on the left */
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10px; /* left position of the line */
+  width: 4px; /* line thickness */
+  height: 100%;
+  background: #f97316; /* orange line */
+  z-index: 1;
+}
+
+/* Each experience item */
+.experience-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Timeline marker (dot + period) */
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* align dot and period left */
+  position: relative;
+  width: 120px; /* space for dates */
+  flex-shrink: 0;
+}
+
+/* Dot fused with the line */
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: #f97316;
+  border-radius: 50%;
+  position: absolute;
+  left: 12px; /* center it on the 4px line (line left + half width) */
+  top: 0;
+  transform: translateX(-50%); /* perfectly center the dot on the line */
+  z-index: 2;
+}
+
+/* Period text */
+.experience-period {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  color: #f97316;
+  margin-left: 28px; /* space between fused dot+line and date */
+  margin-top: 0; /* align with dot vertically */
+}
+
+/* Content card */
+.experience-content {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  flex: 1;
+  position: relative; /* needed for intern image */
+  overflow: hidden;   /* keeps image inside rounded corners */
+}
+
+.experience-content h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.experience-content span {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.experience-content p {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* =========================
+   INTERN IMAGE (TOP-RIGHT)
+========================= */
+
+/* UNIVERSAL TOP-RIGHT IMAGE FOR EXPERIENCE CARDS */
+.experience-content .experience-image {
+  position: absolute;
+  top: -20px;     /* flush with top edge of the card */
+  right: -24px;   /* flush with right edge of the card */
+  width: 190px;   /* max size */
+  height: auto;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+}
+
+/* SPECIFIC ADJUSTMENTS FOR CAPSTONE IMAGE */
+.experience-content.capstone .experience-image {
+  position: absolute;
+  top: 8px;      /* slightly lower than the top edge */
+  right: 12px;   /* slightly left from the right edge */
+  width: 130px;  /* keep desired size */
+  height: auto;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+}
+
+
+/* Prevent text overlap with image */
+.experience-content.intern h3,
+.experience-content.intern span,
+.experience-content.intern p {
+  padding-right: 110px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .experience-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-marker {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .timeline-dot {
+    position: relative;
+    left: 0;
+    transform: none;
+  }
+
+  .experience-timeline::before {
+    left: 10px;
+  }
+
+  .experience-period {
+    margin-left: 12px;
+    margin-top: 0;
+  }
+
+/* MOBILE ADJUSTMENT */
+  .experience-content .experience-image {
+    width: 70px;
+    top: -18px;
+    right: -18px;
+  }
+
+  .experience-content.capstone .experience-image {
+    width: 70px;
+    top: 6px;    /* slightly lower for mobile */
+    right: 6px;  /* slightly left for mobile */
+  }
+
+
+  .experience-content.intern h3,
+  .experience-content.intern span,
+  .experience-content.intern p {
+    padding-right: 90px;
+  }
+}
+
+
 
 /* =========================
    SKILLS SECTION
@@ -508,7 +884,7 @@ body {
 
   padding: 14px 18px;
 
-  color: #fff;
+  color: #f97316;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.3px;
@@ -518,19 +894,27 @@ body {
   pointer-events: none;
 }
 
-/* MERN stack label at top-left inside frame */
-/* Top-left tech stack inside frame */
+/* =========================
+   MERN STACK ICONS (TOP LEFT)
+========================= */
 .project-frame .project-stack {
   position: absolute;
-  top: 0;               /* stick to top */
-  left: 0;              /* stick to left */
-  padding: 12px 16px;   /* spacing from edges */
-  color: violet;
-  font-size: 16px;
-  font-weight: 600;
-  pointer-events: none; /* does not block hover */
+  top: 0;
+  left: 0;
+  padding: 12px 14px;
+  display: flex;
+  gap: 10px;
   z-index: 2;
+  pointer-events: none;
 }
+
+.project-frame .project-stack svg {
+  font-size: 22px;          /* slightly larger */
+  color: #f97316;           /* orange */
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+
 
 .project-frame .project-title {
   position: absolute;
@@ -539,7 +923,7 @@ body {
   padding: 14px 18px;
   z-index: 2;
 
-  color: #fff;
+  color: #f97316;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.3px;

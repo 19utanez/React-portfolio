@@ -4,13 +4,17 @@ Shooting star - check
 ===================
 
 finish structure - check
-with pictures every part
-bios
-change navbar
+with pictures every part - 60% (Skills, My project 1/2)
+
+bios -
+
+change navbar to free space radius type -
 
 ===================phase2=====
+
 Create pictures -Experience part-
 polishing
+
 ===================final part=====
 
 deployment
@@ -26,8 +30,8 @@ my-portfolio/
 │   └─ favicon.ico
 │
 ├─ src/
-│   ├─ assets/                     <-- images, icons, etc.
-│   │   └─ ...                     
+│   ├─ assets/                     <-- images, icons, etc. (4 img total) + 2img
+│   │   └─ ...                      
 │   │
 │   ├─ components/
 │   │   ├─ Footer.jsx

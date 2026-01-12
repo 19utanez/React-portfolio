@@ -5,6 +5,9 @@ import SpotlightSection from "./components/SpotlightSection";
 import SkillsGrid from "./components/skills/SkillsGrid";
 import Projects from "./components/Projects/Projects";
 import RocketFollower from "./components/RocketFollower";
+import Experience from "./components/Experience/Experience";
+import gradPic from "./assets/grad_pic.jpg";
+import { FaMapMarkerAlt, FaEnvelope, FaGraduationCap, FaReact, FaMobileAlt } from "react-icons/fa";
 
 import { useEffect, useState } from "react";
 
@@ -50,42 +53,73 @@ function App() {
 
         <main className="content">
 
-          {/* HERO SECTION */}
+          {/* HERO / Profile Section */}
           <SpotlightSection>
-            <section className="hero">
+            <section id="profile" className="hero">
+              {/* Photo frame */}
               <div className="photo-frame">
-                <span>Your Photo</span>
+                <img
+                  src={gradPic}
+                  alt="Ian Lemuel U."
+                  className="intro-photo"
+                />
               </div>
 
+              {/* Text content */}
               <div className="hero-text">
                 <h1 className="typing-text">{displayText}</h1>
-                <p>
-                  Frontend Developer specializing in ReactJS.
-                  I build clean, modern, and user-focused web applications.
+
+                <div className="hero-subtext">
+                  <p className="hero-line">
+                    <strong>Ian Lemuel A. Utañez</strong>, 22 years old, Junior Developer
+                  </p>
+
+                  <p className="hero-line">
+                    <FaReact className="icon react-icon" /> ReactJS &nbsp;
+                    <FaMobileAlt className="icon mobile-icon" /> React Native
+                  </p>
+
+                  <p className="hero-line">
+                    <FaGraduationCap className="icon grad-icon" /> BSIT, TIP Manila
+                  </p>
+
+                  <p className="hero-line">
+                    <FaMapMarkerAlt className="icon location-icon" /> Based in Manila, Philippines
+                  </p>
+
+                  <p className="hero-line">
+                    <FaEnvelope className="icon email-icon" />
+                    <a href="mailto:ianutanez.it@gmail.com"> ianutanez.it@gmail.com</a>
+                  </p>
+                </div>
+
+                <p className="hero-bio">
+                  Passionate about building web and mobile applications, I have 2 years of web development experience and over a year in mobile development. I enjoy front-end design, dabble in back-end work, and am always eager to learn and take on new challenges.
                 </p>
               </div>
             </section>
           </SpotlightSection>
 
-          {/* EXPERIENCE */}
+          {/* EXPERIENCE SECTION */}
           <SpotlightSection>
-            <section className="experience">
-              <h2>Experience</h2>
+            <section id="experience">
+              <Experience />
             </section>
           </SpotlightSection>
 
-          {/* SKILLS */}
+          {/* SKILLS SECTION */}
           <SpotlightSection>
-            <section className="skills">
+            <section id="skills" className="skills">
               <h2>Skills</h2>
               <SkillsGrid />
             </section>
           </SpotlightSection>
 
-          {/* PROJECTS */}
+          {/* PROJECTS SECTION */}
           <SpotlightSection>
-            {/* Replacing old manual project cards with the new Projects component */}
-            <Projects />
+            <section id="projects">
+              <Projects />
+            </section>
           </SpotlightSection>
 
         </main>
